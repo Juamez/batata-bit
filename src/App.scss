@@ -1,33 +1,268 @@
-$colorBody: linear-gradient(207.8deg, #201E1C 16.69%, #F7931A 100%);
+$colorLinear: linear-gradient(207.8deg, #201E1C 16.69%, #F7931A 100%);
+$white: #FFFFFF;
+$offWhite: #FAF8F7;
+$warmBlack: #201E1C;
+$warmBlack-: #282623;
+$colorBitcoinOrange: #F7931A;
+$softOrange: #FFE9D4;
+$secondaryBlue: #1A9AF7;
+$softBlue: #E7F5FF;
+$grey: #BABABA;
 
+ @mixin flex ($backgroundColor){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 1rem;
+  background: $backgroundColor;
+ }
 .App {
   text-align: center;
   font-family: 'DM Sans';
 }
 
 .App-logo {
-  height: 10vmin;
-  pointer-events: none;
+  height: 9vmin;
 }
 
 .App-header {
-  background: $colorBody;
+  @include flex($colorLinear);
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: rgb(238, 238, 238);
+  p {
+    font-size: 1.2em;
+  }
+  button {
+    position: absolute;
+    bottom: -5.5%;
+    width: 70%;
+    background-color: $white;
+    height: 12%;
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0px 5px 8px #BABABA;
+  }
+  span {
+    display: inline-block;
+    width: 19%;
+    height: 20%;
+    background: url(./assets/icons/down-arrow.svg) no-repeat center right;
+  }
 }
 
-.App-header button {
-  border: none;
-  border-radius: .3rem;
-  height: 3rem;
-  font-weight: bold;
+.App-main {
+  @include flex($offWhite);
+  h2{
+    color: $warmBlack;
+    font-size: 2.2rem;
+  }
+  p{
+    color: #757575;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  p:last-child{
+    height: 2rem;
+    width: 55%;
+    padding-top: .5rem;
+    margin-bottom: 3rem;
+    background-color: $softOrange;
+    color: $warmBlack;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.div-img img{
+  width: 100%;
+  height: 20rem;
+  margin: 6rem 0 0 0;
+}
+
+.table-container {
+  margin: 2rem 0;
+  width: 60%;
+  h4{
+    display: flex;
+    margin-left: .9rem;
+    height: 3vh;
+    font-family: 'Inter';
+    color: $colorBitcoinOrange;
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+  table {
+    width: 100%;
+    height: 100%;
+    td:first-child {
+      color: #B5B0AC;
+      width: 50%;
+    }
+    td:last-child {
+      color: #757575;
+    }
+    td {
+      background-color: $white;
+      height: 2.6rem;
+      width: 2rem;
+      border-radius: .3rem;
+      text-align: left;
+      padding-left: 0.9rem;
+      font-family: 'Inter';
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+}
+
+.section {
+  @include flex($warmBlack);
+  color: $white;
+  h3{
+    font-size: 1.8rem;
+  }
+  p{
+    font-size: 1.2rem;
+    color: #808080;
+    margin-bottom: 2rem;
+  }
+  section:not(:first-child) {
+    width: 90%;
+    height: 35%;
+    margin-bottom: 2rem;
+    border-radius: .8rem;
+    background-color: $warmBlack-;
+    img{
+      display: block;
+      width: 2rem;
+      margin: 1rem 0 0 1.2rem;
+      padding: 1rem 0 0 0;
+    }
+    h4 {
+      padding: 0 1rem;
+      font-size: 1.5rem;
+      text-align: left;
+    }
+    p {
+      font-size: 1.2rem;
+      text-align: justify;
+      padding: 0 1rem;
+    }
+  }
+}
+
+.section-img {
+    width: 100%;
+    height: 100vh;
+    background: url(./assets/imgs/picture.jpg);
+    background-size: cover;
+}
+.section-img::after {
+  content: "Conócelo hoy.";
+  position: relative;
+  top: 16%;
+  color: $white;
+  font-family: 'Dm Sans';
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.section-cards {
+  width: 100%;
+  text-align: center;
+  h3{
+    font-size: 2rem;
+  }
+  p{
+    font-size: 1.2rem;
+    color: #757575;
+    font-weight: 500;
+  }
+  .cards-slider-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    overflow-x: hidden;
+    .card-container {
+      position: relative;
+      scroll-snap-align: center;
+      min-width: 190px;
+      max-width: 300px;
+      width: 50%;
+      height: 78%;
+      padding: 0 1.3rem;
+      border-radius: 1rem;
+      background-color: $white;
+      box-shadow: 0 4px 30px rgba(89, 73, 30, 0.16);
+      p:first-child {
+        position: absolute;
+        top: -10%;
+        left: 22%;
+        width: 10rem;
+        height: 2rem;
+        border-radius: .5rem;
+        font-size: 1.1rem;
+        background-color: $colorBitcoinOrange;
+        color: $white;
+        
+      }
+      .info-card-container {
+        padding-top: .8rem;
+        h4{
+          font-size: 2rem;
+        }
+        p{
+          font-size: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+      button{
+        cursor: pointer;
+        width: 70%;
+        height: 8vh;
+        border: 2px solid $colorBitcoinOrange;
+        border-radius: 5px;
+        font-size: .9rem;
+        font-weight: bold;
+        span {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          padding-left: 1.2rem;
+          background: url(./assets/icons/orange-right-arrow.svg) no-repeat center;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  background-color: $colorBitcoinOrange;
+  li{
+    list-style: none;
+    text-align: left;
+    margin: 1rem 0;
+    padding: .4rem 0;
+    a{
+      text-decoration: none;
+      color: $white;
+    }
+  }
+  img {
+    height: 90px;
+    width: 90px;
+    margin-top: 1rem;
+  }
 }
