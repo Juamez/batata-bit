@@ -37,20 +37,20 @@ $grey: #BABABA;
   button {
     position: absolute;
     bottom: -5.5%;
-    width: 70%;
+    width: 17em;
     background-color: $white;
-    height: 12%;
+    height: 4em;
     border: none;
     border-radius: .3rem;
     cursor: pointer;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     box-shadow: 0px 5px 8px #BABABA;
   }
   span {
     display: inline-block;
-    width: 19%;
-    height: 20%;
+    width: 2rem;
+    height: 0.8em;
     background: url(./assets/icons/down-arrow.svg) no-repeat center right;
   }
 }
@@ -59,20 +59,12 @@ $grey: #BABABA;
   @include flex($offWhite);
   h2{
     color: $warmBlack;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
   p{
     color: #757575;
     font-size: 1.1rem;
     font-weight: 500;
-  }
-  p:last-child{
-    height: 2rem;
-    width: 55%;
-    padding-top: .5rem;
-    margin-bottom: 3rem;
-    background-color: $softOrange;
-    color: $warmBlack;
   }
 }
 
@@ -85,8 +77,7 @@ $grey: #BABABA;
 .table-container {
   margin: 2rem 0;
   width: 60%;
-  h4{
-    display: flex;
+  h4 { 
     margin-left: .9rem;
     height: 3vh;
     font-family: 'Inter';
@@ -97,6 +88,8 @@ $grey: #BABABA;
   table {
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
     td:first-child {
       color: #B5B0AC;
       width: 50%;
@@ -122,12 +115,13 @@ $grey: #BABABA;
   @include flex($warmBlack);
   color: $white;
   h3{
-    font-size: 1.8rem;
+    margin-top: 4rem;
+    font-size: 1.6rem;
   }
   p{
     font-size: 1.2rem;
     color: #808080;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
   section:not(:first-child) {
     width: 90%;
@@ -157,7 +151,7 @@ $grey: #BABABA;
 .section-img {
     width: 100%;
     height: 100vh;
-    background: url(./assets/imgs/picture.jpg);
+    background: url(./assets/imgs/picture.jpg) no-repeat center;
     background-size: cover;
 }
 .section-img::after {
@@ -204,7 +198,7 @@ $grey: #BABABA;
       p:first-child {
         position: absolute;
         top: -10%;
-        left: 22%;
+        left: 2.3rem;
         width: 10rem;
         height: 2rem;
         border-radius: .5rem;
@@ -225,7 +219,7 @@ $grey: #BABABA;
       }
       button{
         cursor: pointer;
-        width: 70%;
+        width: 85%;
         height: 8vh;
         border: 2px solid $colorBitcoinOrange;
         border-radius: 5px;
@@ -246,10 +240,13 @@ $grey: #BABABA;
 footer {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
   background-color: $colorBitcoinOrange;
+  div {
+    margin: 0 0.5rem 0 2.5rem;
+  }
   li{
     list-style: none;
     text-align: left;
